@@ -6,7 +6,7 @@ message EmptyMessage {
 }
 
 message ErrMessage {
-  string errmessage = 1;
+  string err = 1;
 }
 
 service ReclusteringService {
