@@ -1,0 +1,14 @@
+syntax="proto3";
+
+option go_package = "../pbface2";
+
+message EmptyMessage {
+}
+
+message ErrMessage {
+  string errmessage = 1;
+}
+
+service ReclusteringService {
+	rpc ReclusteringFunc(EmptyMessage) returns (ErrMessage) {}
+}
