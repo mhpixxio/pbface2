@@ -103,3 +103,523 @@ var ReclusteringService_ServiceDesc = grpc.ServiceDesc{
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "face.proto",
 }
+
+// UpdateFacesAndClustersServiceClient is the client API for UpdateFacesAndClustersService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type UpdateFacesAndClustersServiceClient interface {
+	UpdateFacesAndClustersFunc(ctx context.Context, in *EmptyMessage, opts ...grpc.CallOption) (*ErrMessage, error)
+}
+
+type updateFacesAndClustersServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewUpdateFacesAndClustersServiceClient(cc grpc.ClientConnInterface) UpdateFacesAndClustersServiceClient {
+	return &updateFacesAndClustersServiceClient{cc}
+}
+
+func (c *updateFacesAndClustersServiceClient) UpdateFacesAndClustersFunc(ctx context.Context, in *EmptyMessage, opts ...grpc.CallOption) (*ErrMessage, error) {
+	out := new(ErrMessage)
+	err := c.cc.Invoke(ctx, "/UpdateFacesAndClustersService/UpdateFacesAndClustersFunc", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// UpdateFacesAndClustersServiceServer is the server API for UpdateFacesAndClustersService service.
+// All implementations must embed UnimplementedUpdateFacesAndClustersServiceServer
+// for forward compatibility
+type UpdateFacesAndClustersServiceServer interface {
+	UpdateFacesAndClustersFunc(context.Context, *EmptyMessage) (*ErrMessage, error)
+	mustEmbedUnimplementedUpdateFacesAndClustersServiceServer()
+}
+
+// UnimplementedUpdateFacesAndClustersServiceServer must be embedded to have forward compatible implementations.
+type UnimplementedUpdateFacesAndClustersServiceServer struct {
+}
+
+func (UnimplementedUpdateFacesAndClustersServiceServer) UpdateFacesAndClustersFunc(context.Context, *EmptyMessage) (*ErrMessage, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateFacesAndClustersFunc not implemented")
+}
+func (UnimplementedUpdateFacesAndClustersServiceServer) mustEmbedUnimplementedUpdateFacesAndClustersServiceServer() {
+}
+
+// UnsafeUpdateFacesAndClustersServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to UpdateFacesAndClustersServiceServer will
+// result in compilation errors.
+type UnsafeUpdateFacesAndClustersServiceServer interface {
+	mustEmbedUnimplementedUpdateFacesAndClustersServiceServer()
+}
+
+func RegisterUpdateFacesAndClustersServiceServer(s grpc.ServiceRegistrar, srv UpdateFacesAndClustersServiceServer) {
+	s.RegisterService(&UpdateFacesAndClustersService_ServiceDesc, srv)
+}
+
+func _UpdateFacesAndClustersService_UpdateFacesAndClustersFunc_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EmptyMessage)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UpdateFacesAndClustersServiceServer).UpdateFacesAndClustersFunc(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/UpdateFacesAndClustersService/UpdateFacesAndClustersFunc",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UpdateFacesAndClustersServiceServer).UpdateFacesAndClustersFunc(ctx, req.(*EmptyMessage))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// UpdateFacesAndClustersService_ServiceDesc is the grpc.ServiceDesc for UpdateFacesAndClustersService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var UpdateFacesAndClustersService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "UpdateFacesAndClustersService",
+	HandlerType: (*UpdateFacesAndClustersServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "UpdateFacesAndClustersFunc",
+			Handler:    _UpdateFacesAndClustersService_UpdateFacesAndClustersFunc_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "face.proto",
+}
+
+// RenameClusterServiceClient is the client API for RenameClusterService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RenameClusterServiceClient interface {
+	RenameClusterFunc(ctx context.Context, in *RenameClusterMessage, opts ...grpc.CallOption) (*ErrMessage, error)
+}
+
+type renameClusterServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRenameClusterServiceClient(cc grpc.ClientConnInterface) RenameClusterServiceClient {
+	return &renameClusterServiceClient{cc}
+}
+
+func (c *renameClusterServiceClient) RenameClusterFunc(ctx context.Context, in *RenameClusterMessage, opts ...grpc.CallOption) (*ErrMessage, error) {
+	out := new(ErrMessage)
+	err := c.cc.Invoke(ctx, "/RenameClusterService/RenameClusterFunc", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RenameClusterServiceServer is the server API for RenameClusterService service.
+// All implementations must embed UnimplementedRenameClusterServiceServer
+// for forward compatibility
+type RenameClusterServiceServer interface {
+	RenameClusterFunc(context.Context, *RenameClusterMessage) (*ErrMessage, error)
+	mustEmbedUnimplementedRenameClusterServiceServer()
+}
+
+// UnimplementedRenameClusterServiceServer must be embedded to have forward compatible implementations.
+type UnimplementedRenameClusterServiceServer struct {
+}
+
+func (UnimplementedRenameClusterServiceServer) RenameClusterFunc(context.Context, *RenameClusterMessage) (*ErrMessage, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RenameClusterFunc not implemented")
+}
+func (UnimplementedRenameClusterServiceServer) mustEmbedUnimplementedRenameClusterServiceServer() {}
+
+// UnsafeRenameClusterServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RenameClusterServiceServer will
+// result in compilation errors.
+type UnsafeRenameClusterServiceServer interface {
+	mustEmbedUnimplementedRenameClusterServiceServer()
+}
+
+func RegisterRenameClusterServiceServer(s grpc.ServiceRegistrar, srv RenameClusterServiceServer) {
+	s.RegisterService(&RenameClusterService_ServiceDesc, srv)
+}
+
+func _RenameClusterService_RenameClusterFunc_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RenameClusterMessage)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RenameClusterServiceServer).RenameClusterFunc(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/RenameClusterService/RenameClusterFunc",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RenameClusterServiceServer).RenameClusterFunc(ctx, req.(*RenameClusterMessage))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RenameClusterService_ServiceDesc is the grpc.ServiceDesc for RenameClusterService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RenameClusterService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "RenameClusterService",
+	HandlerType: (*RenameClusterServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "RenameClusterFunc",
+			Handler:    _RenameClusterService_RenameClusterFunc_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "face.proto",
+}
+
+// MergeClustersServiceClient is the client API for MergeClustersService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type MergeClustersServiceClient interface {
+	MergeClustersFunc(ctx context.Context, in *MergeClustersMessage, opts ...grpc.CallOption) (*ErrMessage, error)
+}
+
+type mergeClustersServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewMergeClustersServiceClient(cc grpc.ClientConnInterface) MergeClustersServiceClient {
+	return &mergeClustersServiceClient{cc}
+}
+
+func (c *mergeClustersServiceClient) MergeClustersFunc(ctx context.Context, in *MergeClustersMessage, opts ...grpc.CallOption) (*ErrMessage, error) {
+	out := new(ErrMessage)
+	err := c.cc.Invoke(ctx, "/MergeClustersService/MergeClustersFunc", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// MergeClustersServiceServer is the server API for MergeClustersService service.
+// All implementations must embed UnimplementedMergeClustersServiceServer
+// for forward compatibility
+type MergeClustersServiceServer interface {
+	MergeClustersFunc(context.Context, *MergeClustersMessage) (*ErrMessage, error)
+	mustEmbedUnimplementedMergeClustersServiceServer()
+}
+
+// UnimplementedMergeClustersServiceServer must be embedded to have forward compatible implementations.
+type UnimplementedMergeClustersServiceServer struct {
+}
+
+func (UnimplementedMergeClustersServiceServer) MergeClustersFunc(context.Context, *MergeClustersMessage) (*ErrMessage, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method MergeClustersFunc not implemented")
+}
+func (UnimplementedMergeClustersServiceServer) mustEmbedUnimplementedMergeClustersServiceServer() {}
+
+// UnsafeMergeClustersServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to MergeClustersServiceServer will
+// result in compilation errors.
+type UnsafeMergeClustersServiceServer interface {
+	mustEmbedUnimplementedMergeClustersServiceServer()
+}
+
+func RegisterMergeClustersServiceServer(s grpc.ServiceRegistrar, srv MergeClustersServiceServer) {
+	s.RegisterService(&MergeClustersService_ServiceDesc, srv)
+}
+
+func _MergeClustersService_MergeClustersFunc_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MergeClustersMessage)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MergeClustersServiceServer).MergeClustersFunc(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/MergeClustersService/MergeClustersFunc",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MergeClustersServiceServer).MergeClustersFunc(ctx, req.(*MergeClustersMessage))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// MergeClustersService_ServiceDesc is the grpc.ServiceDesc for MergeClustersService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var MergeClustersService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "MergeClustersService",
+	HandlerType: (*MergeClustersServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "MergeClustersFunc",
+			Handler:    _MergeClustersService_MergeClustersFunc_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "face.proto",
+}
+
+// MoveFacesToAnotherClusterServiceClient is the client API for MoveFacesToAnotherClusterService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type MoveFacesToAnotherClusterServiceClient interface {
+	MoveFacesToAnotherClusterFunc(ctx context.Context, in *MoveFacesToAnotherClusterMessage, opts ...grpc.CallOption) (*ErrMessage, error)
+}
+
+type moveFacesToAnotherClusterServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewMoveFacesToAnotherClusterServiceClient(cc grpc.ClientConnInterface) MoveFacesToAnotherClusterServiceClient {
+	return &moveFacesToAnotherClusterServiceClient{cc}
+}
+
+func (c *moveFacesToAnotherClusterServiceClient) MoveFacesToAnotherClusterFunc(ctx context.Context, in *MoveFacesToAnotherClusterMessage, opts ...grpc.CallOption) (*ErrMessage, error) {
+	out := new(ErrMessage)
+	err := c.cc.Invoke(ctx, "/MoveFacesToAnotherClusterService/MoveFacesToAnotherClusterFunc", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// MoveFacesToAnotherClusterServiceServer is the server API for MoveFacesToAnotherClusterService service.
+// All implementations must embed UnimplementedMoveFacesToAnotherClusterServiceServer
+// for forward compatibility
+type MoveFacesToAnotherClusterServiceServer interface {
+	MoveFacesToAnotherClusterFunc(context.Context, *MoveFacesToAnotherClusterMessage) (*ErrMessage, error)
+	mustEmbedUnimplementedMoveFacesToAnotherClusterServiceServer()
+}
+
+// UnimplementedMoveFacesToAnotherClusterServiceServer must be embedded to have forward compatible implementations.
+type UnimplementedMoveFacesToAnotherClusterServiceServer struct {
+}
+
+func (UnimplementedMoveFacesToAnotherClusterServiceServer) MoveFacesToAnotherClusterFunc(context.Context, *MoveFacesToAnotherClusterMessage) (*ErrMessage, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method MoveFacesToAnotherClusterFunc not implemented")
+}
+func (UnimplementedMoveFacesToAnotherClusterServiceServer) mustEmbedUnimplementedMoveFacesToAnotherClusterServiceServer() {
+}
+
+// UnsafeMoveFacesToAnotherClusterServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to MoveFacesToAnotherClusterServiceServer will
+// result in compilation errors.
+type UnsafeMoveFacesToAnotherClusterServiceServer interface {
+	mustEmbedUnimplementedMoveFacesToAnotherClusterServiceServer()
+}
+
+func RegisterMoveFacesToAnotherClusterServiceServer(s grpc.ServiceRegistrar, srv MoveFacesToAnotherClusterServiceServer) {
+	s.RegisterService(&MoveFacesToAnotherClusterService_ServiceDesc, srv)
+}
+
+func _MoveFacesToAnotherClusterService_MoveFacesToAnotherClusterFunc_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MoveFacesToAnotherClusterMessage)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MoveFacesToAnotherClusterServiceServer).MoveFacesToAnotherClusterFunc(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/MoveFacesToAnotherClusterService/MoveFacesToAnotherClusterFunc",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MoveFacesToAnotherClusterServiceServer).MoveFacesToAnotherClusterFunc(ctx, req.(*MoveFacesToAnotherClusterMessage))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// MoveFacesToAnotherClusterService_ServiceDesc is the grpc.ServiceDesc for MoveFacesToAnotherClusterService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var MoveFacesToAnotherClusterService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "MoveFacesToAnotherClusterService",
+	HandlerType: (*MoveFacesToAnotherClusterServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "MoveFacesToAnotherClusterFunc",
+			Handler:    _MoveFacesToAnotherClusterService_MoveFacesToAnotherClusterFunc_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "face.proto",
+}
+
+// RemoveFacesFromDatabaseServiceClient is the client API for RemoveFacesFromDatabaseService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RemoveFacesFromDatabaseServiceClient interface {
+	RemoveFacesFromDatabaseFunc(ctx context.Context, in *RemoveFacesFromDatabaseMessage, opts ...grpc.CallOption) (*ErrMessage, error)
+}
+
+type removeFacesFromDatabaseServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRemoveFacesFromDatabaseServiceClient(cc grpc.ClientConnInterface) RemoveFacesFromDatabaseServiceClient {
+	return &removeFacesFromDatabaseServiceClient{cc}
+}
+
+func (c *removeFacesFromDatabaseServiceClient) RemoveFacesFromDatabaseFunc(ctx context.Context, in *RemoveFacesFromDatabaseMessage, opts ...grpc.CallOption) (*ErrMessage, error) {
+	out := new(ErrMessage)
+	err := c.cc.Invoke(ctx, "/RemoveFacesFromDatabaseService/RemoveFacesFromDatabaseFunc", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RemoveFacesFromDatabaseServiceServer is the server API for RemoveFacesFromDatabaseService service.
+// All implementations must embed UnimplementedRemoveFacesFromDatabaseServiceServer
+// for forward compatibility
+type RemoveFacesFromDatabaseServiceServer interface {
+	RemoveFacesFromDatabaseFunc(context.Context, *RemoveFacesFromDatabaseMessage) (*ErrMessage, error)
+	mustEmbedUnimplementedRemoveFacesFromDatabaseServiceServer()
+}
+
+// UnimplementedRemoveFacesFromDatabaseServiceServer must be embedded to have forward compatible implementations.
+type UnimplementedRemoveFacesFromDatabaseServiceServer struct {
+}
+
+func (UnimplementedRemoveFacesFromDatabaseServiceServer) RemoveFacesFromDatabaseFunc(context.Context, *RemoveFacesFromDatabaseMessage) (*ErrMessage, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveFacesFromDatabaseFunc not implemented")
+}
+func (UnimplementedRemoveFacesFromDatabaseServiceServer) mustEmbedUnimplementedRemoveFacesFromDatabaseServiceServer() {
+}
+
+// UnsafeRemoveFacesFromDatabaseServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RemoveFacesFromDatabaseServiceServer will
+// result in compilation errors.
+type UnsafeRemoveFacesFromDatabaseServiceServer interface {
+	mustEmbedUnimplementedRemoveFacesFromDatabaseServiceServer()
+}
+
+func RegisterRemoveFacesFromDatabaseServiceServer(s grpc.ServiceRegistrar, srv RemoveFacesFromDatabaseServiceServer) {
+	s.RegisterService(&RemoveFacesFromDatabaseService_ServiceDesc, srv)
+}
+
+func _RemoveFacesFromDatabaseService_RemoveFacesFromDatabaseFunc_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveFacesFromDatabaseMessage)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RemoveFacesFromDatabaseServiceServer).RemoveFacesFromDatabaseFunc(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/RemoveFacesFromDatabaseService/RemoveFacesFromDatabaseFunc",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RemoveFacesFromDatabaseServiceServer).RemoveFacesFromDatabaseFunc(ctx, req.(*RemoveFacesFromDatabaseMessage))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RemoveFacesFromDatabaseService_ServiceDesc is the grpc.ServiceDesc for RemoveFacesFromDatabaseService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RemoveFacesFromDatabaseService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "RemoveFacesFromDatabaseService",
+	HandlerType: (*RemoveFacesFromDatabaseServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "RemoveFacesFromDatabaseFunc",
+			Handler:    _RemoveFacesFromDatabaseService_RemoveFacesFromDatabaseFunc_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "face.proto",
+}
+
+// RemoveFilesFromDatabaseServiceClient is the client API for RemoveFilesFromDatabaseService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RemoveFilesFromDatabaseServiceClient interface {
+	RemoveFilesFromDatabaseFunc(ctx context.Context, in *RemoveFilesFromDatabaseMessage, opts ...grpc.CallOption) (*ErrMessage, error)
+}
+
+type removeFilesFromDatabaseServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRemoveFilesFromDatabaseServiceClient(cc grpc.ClientConnInterface) RemoveFilesFromDatabaseServiceClient {
+	return &removeFilesFromDatabaseServiceClient{cc}
+}
+
+func (c *removeFilesFromDatabaseServiceClient) RemoveFilesFromDatabaseFunc(ctx context.Context, in *RemoveFilesFromDatabaseMessage, opts ...grpc.CallOption) (*ErrMessage, error) {
+	out := new(ErrMessage)
+	err := c.cc.Invoke(ctx, "/RemoveFilesFromDatabaseService/RemoveFilesFromDatabaseFunc", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RemoveFilesFromDatabaseServiceServer is the server API for RemoveFilesFromDatabaseService service.
+// All implementations must embed UnimplementedRemoveFilesFromDatabaseServiceServer
+// for forward compatibility
+type RemoveFilesFromDatabaseServiceServer interface {
+	RemoveFilesFromDatabaseFunc(context.Context, *RemoveFilesFromDatabaseMessage) (*ErrMessage, error)
+	mustEmbedUnimplementedRemoveFilesFromDatabaseServiceServer()
+}
+
+// UnimplementedRemoveFilesFromDatabaseServiceServer must be embedded to have forward compatible implementations.
+type UnimplementedRemoveFilesFromDatabaseServiceServer struct {
+}
+
+func (UnimplementedRemoveFilesFromDatabaseServiceServer) RemoveFilesFromDatabaseFunc(context.Context, *RemoveFilesFromDatabaseMessage) (*ErrMessage, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveFilesFromDatabaseFunc not implemented")
+}
+func (UnimplementedRemoveFilesFromDatabaseServiceServer) mustEmbedUnimplementedRemoveFilesFromDatabaseServiceServer() {
+}
+
+// UnsafeRemoveFilesFromDatabaseServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RemoveFilesFromDatabaseServiceServer will
+// result in compilation errors.
+type UnsafeRemoveFilesFromDatabaseServiceServer interface {
+	mustEmbedUnimplementedRemoveFilesFromDatabaseServiceServer()
+}
+
+func RegisterRemoveFilesFromDatabaseServiceServer(s grpc.ServiceRegistrar, srv RemoveFilesFromDatabaseServiceServer) {
+	s.RegisterService(&RemoveFilesFromDatabaseService_ServiceDesc, srv)
+}
+
+func _RemoveFilesFromDatabaseService_RemoveFilesFromDatabaseFunc_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveFilesFromDatabaseMessage)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RemoveFilesFromDatabaseServiceServer).RemoveFilesFromDatabaseFunc(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/RemoveFilesFromDatabaseService/RemoveFilesFromDatabaseFunc",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RemoveFilesFromDatabaseServiceServer).RemoveFilesFromDatabaseFunc(ctx, req.(*RemoveFilesFromDatabaseMessage))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RemoveFilesFromDatabaseService_ServiceDesc is the grpc.ServiceDesc for RemoveFilesFromDatabaseService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RemoveFilesFromDatabaseService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "RemoveFilesFromDatabaseService",
+	HandlerType: (*RemoveFilesFromDatabaseServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "RemoveFilesFromDatabaseFunc",
+			Handler:    _RemoveFilesFromDatabaseService_RemoveFilesFromDatabaseFunc_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "face.proto",
+}
