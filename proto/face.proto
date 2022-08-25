@@ -14,11 +14,11 @@ message ClusterIDMessage{
 }
 
 message FaceIDMessage{
-  string faceID = 1;
+  int32 faceID = 1;
 }
 
 message FileIDMessage{
-  string fileID = 1;
+  int32 fileID = 1;
 }
 
 service ReclusteringService {
