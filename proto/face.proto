@@ -6,7 +6,7 @@ message EmptyMessage {
 }
 
 message ErrMessage {
-  string err = 1;
+  string errString = 1;
 }
 
 message ClusterIDMessage{
