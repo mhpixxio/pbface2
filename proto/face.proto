@@ -31,7 +31,7 @@ service UpdateFacesAndClustersService{
 
 message RenameClusterMessage{
   string clusterID = 1;
-  string newName = 2;
+  string newPersonName = 2;
 }
 service RenameClusterService {
 	rpc RenameClusterFunc(RenameClusterMessage) returns (ErrMessage) {}
