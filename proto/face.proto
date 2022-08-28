@@ -46,12 +46,12 @@ service MergeClustersService {
 }
 
 
-message MoveFacesToAnotherClusterMessage{
+message ManuallyMoveFacesToAnotherClusterMessage{
   repeated FaceIDMessage faceIDs = 1;
   string clusterID = 2;
 }
-service MoveFacesToAnotherClusterService {
-	rpc MoveFacesToAnotherClusterFunc(MoveFacesToAnotherClusterMessage) returns (ErrMessage) {}
+service ManuallyMoveFacesToAnotherClusterService {
+	rpc ManuallyMoveFacesToAnotherClusterFunc(ManuallyMoveFacesToAnotherClusterMessage) returns (ErrMessage) {}
 }
 
 

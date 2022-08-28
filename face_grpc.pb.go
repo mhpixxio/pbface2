@@ -363,87 +363,87 @@ var MergeClustersService_ServiceDesc = grpc.ServiceDesc{
 	Metadata: "face.proto",
 }
 
-// MoveFacesToAnotherClusterServiceClient is the client API for MoveFacesToAnotherClusterService service.
+// ManuallyMoveFacesToAnotherClusterServiceClient is the client API for ManuallyMoveFacesToAnotherClusterService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type MoveFacesToAnotherClusterServiceClient interface {
-	MoveFacesToAnotherClusterFunc(ctx context.Context, in *MoveFacesToAnotherClusterMessage, opts ...grpc.CallOption) (*ErrMessage, error)
+type ManuallyMoveFacesToAnotherClusterServiceClient interface {
+	ManuallyMoveFacesToAnotherClusterFunc(ctx context.Context, in *ManuallyMoveFacesToAnotherClusterMessage, opts ...grpc.CallOption) (*ErrMessage, error)
 }
 
-type moveFacesToAnotherClusterServiceClient struct {
+type manuallyMoveFacesToAnotherClusterServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewMoveFacesToAnotherClusterServiceClient(cc grpc.ClientConnInterface) MoveFacesToAnotherClusterServiceClient {
-	return &moveFacesToAnotherClusterServiceClient{cc}
+func NewManuallyMoveFacesToAnotherClusterServiceClient(cc grpc.ClientConnInterface) ManuallyMoveFacesToAnotherClusterServiceClient {
+	return &manuallyMoveFacesToAnotherClusterServiceClient{cc}
 }
 
-func (c *moveFacesToAnotherClusterServiceClient) MoveFacesToAnotherClusterFunc(ctx context.Context, in *MoveFacesToAnotherClusterMessage, opts ...grpc.CallOption) (*ErrMessage, error) {
+func (c *manuallyMoveFacesToAnotherClusterServiceClient) ManuallyMoveFacesToAnotherClusterFunc(ctx context.Context, in *ManuallyMoveFacesToAnotherClusterMessage, opts ...grpc.CallOption) (*ErrMessage, error) {
 	out := new(ErrMessage)
-	err := c.cc.Invoke(ctx, "/MoveFacesToAnotherClusterService/MoveFacesToAnotherClusterFunc", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/ManuallyMoveFacesToAnotherClusterService/ManuallyMoveFacesToAnotherClusterFunc", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// MoveFacesToAnotherClusterServiceServer is the server API for MoveFacesToAnotherClusterService service.
-// All implementations must embed UnimplementedMoveFacesToAnotherClusterServiceServer
+// ManuallyMoveFacesToAnotherClusterServiceServer is the server API for ManuallyMoveFacesToAnotherClusterService service.
+// All implementations must embed UnimplementedManuallyMoveFacesToAnotherClusterServiceServer
 // for forward compatibility
-type MoveFacesToAnotherClusterServiceServer interface {
-	MoveFacesToAnotherClusterFunc(context.Context, *MoveFacesToAnotherClusterMessage) (*ErrMessage, error)
-	mustEmbedUnimplementedMoveFacesToAnotherClusterServiceServer()
+type ManuallyMoveFacesToAnotherClusterServiceServer interface {
+	ManuallyMoveFacesToAnotherClusterFunc(context.Context, *ManuallyMoveFacesToAnotherClusterMessage) (*ErrMessage, error)
+	mustEmbedUnimplementedManuallyMoveFacesToAnotherClusterServiceServer()
 }
 
-// UnimplementedMoveFacesToAnotherClusterServiceServer must be embedded to have forward compatible implementations.
-type UnimplementedMoveFacesToAnotherClusterServiceServer struct {
+// UnimplementedManuallyMoveFacesToAnotherClusterServiceServer must be embedded to have forward compatible implementations.
+type UnimplementedManuallyMoveFacesToAnotherClusterServiceServer struct {
 }
 
-func (UnimplementedMoveFacesToAnotherClusterServiceServer) MoveFacesToAnotherClusterFunc(context.Context, *MoveFacesToAnotherClusterMessage) (*ErrMessage, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method MoveFacesToAnotherClusterFunc not implemented")
+func (UnimplementedManuallyMoveFacesToAnotherClusterServiceServer) ManuallyMoveFacesToAnotherClusterFunc(context.Context, *ManuallyMoveFacesToAnotherClusterMessage) (*ErrMessage, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ManuallyMoveFacesToAnotherClusterFunc not implemented")
 }
-func (UnimplementedMoveFacesToAnotherClusterServiceServer) mustEmbedUnimplementedMoveFacesToAnotherClusterServiceServer() {
+func (UnimplementedManuallyMoveFacesToAnotherClusterServiceServer) mustEmbedUnimplementedManuallyMoveFacesToAnotherClusterServiceServer() {
 }
 
-// UnsafeMoveFacesToAnotherClusterServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to MoveFacesToAnotherClusterServiceServer will
+// UnsafeManuallyMoveFacesToAnotherClusterServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManuallyMoveFacesToAnotherClusterServiceServer will
 // result in compilation errors.
-type UnsafeMoveFacesToAnotherClusterServiceServer interface {
-	mustEmbedUnimplementedMoveFacesToAnotherClusterServiceServer()
+type UnsafeManuallyMoveFacesToAnotherClusterServiceServer interface {
+	mustEmbedUnimplementedManuallyMoveFacesToAnotherClusterServiceServer()
 }
 
-func RegisterMoveFacesToAnotherClusterServiceServer(s grpc.ServiceRegistrar, srv MoveFacesToAnotherClusterServiceServer) {
-	s.RegisterService(&MoveFacesToAnotherClusterService_ServiceDesc, srv)
+func RegisterManuallyMoveFacesToAnotherClusterServiceServer(s grpc.ServiceRegistrar, srv ManuallyMoveFacesToAnotherClusterServiceServer) {
+	s.RegisterService(&ManuallyMoveFacesToAnotherClusterService_ServiceDesc, srv)
 }
 
-func _MoveFacesToAnotherClusterService_MoveFacesToAnotherClusterFunc_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MoveFacesToAnotherClusterMessage)
+func _ManuallyMoveFacesToAnotherClusterService_ManuallyMoveFacesToAnotherClusterFunc_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ManuallyMoveFacesToAnotherClusterMessage)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MoveFacesToAnotherClusterServiceServer).MoveFacesToAnotherClusterFunc(ctx, in)
+		return srv.(ManuallyMoveFacesToAnotherClusterServiceServer).ManuallyMoveFacesToAnotherClusterFunc(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/MoveFacesToAnotherClusterService/MoveFacesToAnotherClusterFunc",
+		FullMethod: "/ManuallyMoveFacesToAnotherClusterService/ManuallyMoveFacesToAnotherClusterFunc",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MoveFacesToAnotherClusterServiceServer).MoveFacesToAnotherClusterFunc(ctx, req.(*MoveFacesToAnotherClusterMessage))
+		return srv.(ManuallyMoveFacesToAnotherClusterServiceServer).ManuallyMoveFacesToAnotherClusterFunc(ctx, req.(*ManuallyMoveFacesToAnotherClusterMessage))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// MoveFacesToAnotherClusterService_ServiceDesc is the grpc.ServiceDesc for MoveFacesToAnotherClusterService service.
+// ManuallyMoveFacesToAnotherClusterService_ServiceDesc is the grpc.ServiceDesc for ManuallyMoveFacesToAnotherClusterService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var MoveFacesToAnotherClusterService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "MoveFacesToAnotherClusterService",
-	HandlerType: (*MoveFacesToAnotherClusterServiceServer)(nil),
+var ManuallyMoveFacesToAnotherClusterService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ManuallyMoveFacesToAnotherClusterService",
+	HandlerType: (*ManuallyMoveFacesToAnotherClusterServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "MoveFacesToAnotherClusterFunc",
-			Handler:    _MoveFacesToAnotherClusterService_MoveFacesToAnotherClusterFunc_Handler,
+			MethodName: "ManuallyMoveFacesToAnotherClusterFunc",
+			Handler:    _ManuallyMoveFacesToAnotherClusterService_ManuallyMoveFacesToAnotherClusterFunc_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
