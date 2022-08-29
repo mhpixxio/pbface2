@@ -21,13 +21,16 @@ message FileIDMessage{
   int32 fileID = 1;
 }
 
+
 service ReclusteringService {
 	rpc ReclusteringFunc(EmptyMessage) returns (ErrMessage) {}
 }
 
+
 service UpdateFacesAndClustersService{
   rpc UpdateFacesAndClustersFunc(EmptyMessage) returns (ErrMessage) {}
 }
+
 
 message RenameClusterMessage{
   string clusterID = 1;
@@ -35,6 +38,11 @@ message RenameClusterMessage{
 }
 service RenameClusterService {
 	rpc RenameClusterFunc(RenameClusterMessage) returns (ErrMessage) {}
+}
+
+
+service DeleteAllPersonNamesService {
+	rpc DeleteAllPersonNamesFunc(EmptyMessage) returns (ErrMessage) {}
 }
 
 

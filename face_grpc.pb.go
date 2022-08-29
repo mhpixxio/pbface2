@@ -277,6 +277,93 @@ var RenameClusterService_ServiceDesc = grpc.ServiceDesc{
 	Metadata: "face.proto",
 }
 
+// DeleteAllPersonNamesServiceClient is the client API for DeleteAllPersonNamesService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DeleteAllPersonNamesServiceClient interface {
+	DeleteAllPersonNamesFunc(ctx context.Context, in *EmptyMessage, opts ...grpc.CallOption) (*ErrMessage, error)
+}
+
+type deleteAllPersonNamesServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDeleteAllPersonNamesServiceClient(cc grpc.ClientConnInterface) DeleteAllPersonNamesServiceClient {
+	return &deleteAllPersonNamesServiceClient{cc}
+}
+
+func (c *deleteAllPersonNamesServiceClient) DeleteAllPersonNamesFunc(ctx context.Context, in *EmptyMessage, opts ...grpc.CallOption) (*ErrMessage, error) {
+	out := new(ErrMessage)
+	err := c.cc.Invoke(ctx, "/DeleteAllPersonNamesService/DeleteAllPersonNamesFunc", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DeleteAllPersonNamesServiceServer is the server API for DeleteAllPersonNamesService service.
+// All implementations must embed UnimplementedDeleteAllPersonNamesServiceServer
+// for forward compatibility
+type DeleteAllPersonNamesServiceServer interface {
+	DeleteAllPersonNamesFunc(context.Context, *EmptyMessage) (*ErrMessage, error)
+	mustEmbedUnimplementedDeleteAllPersonNamesServiceServer()
+}
+
+// UnimplementedDeleteAllPersonNamesServiceServer must be embedded to have forward compatible implementations.
+type UnimplementedDeleteAllPersonNamesServiceServer struct {
+}
+
+func (UnimplementedDeleteAllPersonNamesServiceServer) DeleteAllPersonNamesFunc(context.Context, *EmptyMessage) (*ErrMessage, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteAllPersonNamesFunc not implemented")
+}
+func (UnimplementedDeleteAllPersonNamesServiceServer) mustEmbedUnimplementedDeleteAllPersonNamesServiceServer() {
+}
+
+// UnsafeDeleteAllPersonNamesServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DeleteAllPersonNamesServiceServer will
+// result in compilation errors.
+type UnsafeDeleteAllPersonNamesServiceServer interface {
+	mustEmbedUnimplementedDeleteAllPersonNamesServiceServer()
+}
+
+func RegisterDeleteAllPersonNamesServiceServer(s grpc.ServiceRegistrar, srv DeleteAllPersonNamesServiceServer) {
+	s.RegisterService(&DeleteAllPersonNamesService_ServiceDesc, srv)
+}
+
+func _DeleteAllPersonNamesService_DeleteAllPersonNamesFunc_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EmptyMessage)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeleteAllPersonNamesServiceServer).DeleteAllPersonNamesFunc(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/DeleteAllPersonNamesService/DeleteAllPersonNamesFunc",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeleteAllPersonNamesServiceServer).DeleteAllPersonNamesFunc(ctx, req.(*EmptyMessage))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DeleteAllPersonNamesService_ServiceDesc is the grpc.ServiceDesc for DeleteAllPersonNamesService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DeleteAllPersonNamesService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "DeleteAllPersonNamesService",
+	HandlerType: (*DeleteAllPersonNamesServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DeleteAllPersonNamesFunc",
+			Handler:    _DeleteAllPersonNamesService_DeleteAllPersonNamesFunc_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "face.proto",
+}
+
 // MergeClustersServiceClient is the client API for MergeClustersService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
